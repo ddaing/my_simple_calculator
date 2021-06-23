@@ -52,3 +52,8 @@ def test_mul_many_numbers():
     result = calculator.mul(*numbers)
 
     assert result == 362880
+def test_mul_by_zero_raises_exception():
+    calculator = SimpleCalculator()
+
+    with pytest.raises(ValueError):
+        calculator.mul(3, 0)
