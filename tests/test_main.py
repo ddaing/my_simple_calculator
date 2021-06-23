@@ -35,3 +35,20 @@ def test_subtract_two_numbers():
 
     assert result == 7
 
+
+def test_mul_two_numbers():
+    calculator = SimpleCalculator()
+
+    result = calculator.mul(6, 4)
+
+    assert result == 24
+
+
+def test_mul_many_numbers():
+    numbers = range(1, 10)
+
+    calculator = SimpleCalculator()
+
+    result = calculator.mul(*numbers)
+
+    assert result == 362880
