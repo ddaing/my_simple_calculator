@@ -18,3 +18,13 @@ class SimpleCalculator:
             return a / b
         except ZeroDivisionError:
             return float("inf")
+
+    def avg(self, nums, lt=None, ut=None):
+        if lt is not None:
+            nums = [i for i in nums if i >= lt]
+        if ut is not None:
+            nums = [i for i in nums if i <= ut]
+        if nums:
+            return sum(nums) / len(nums)
+        else:
+            return 0

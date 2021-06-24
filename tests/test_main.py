@@ -77,3 +77,82 @@ def test_mul_by_zero_raises_exception():
 
     with pytest.raises(ValueError):
         calculator.mul(3, 0)
+
+def test_avg_1():
+    calculator = SimpleCalculator()
+
+    result = calculator.avg([2, 5, 12, 98])
+
+    assert result == 29.25
+
+
+def test_avg_2():
+    calculator = SimpleCalculator()
+
+    result = calculator.avg([2, 5, 12, 98], ut=90)
+
+    assert result == calculator.avg([2, 5, 12])
+
+
+def test_avg_3():
+    calculator = SimpleCalculator()
+
+    result = calculator.avg([2, 5, 12, 98], lt=10)
+
+    assert result == calculator.avg([12, 98])
+
+
+def test_avg_4():
+    calculator = SimpleCalculator()
+
+    result = calculator.avg([2, 5, 12, 98], ut=98)
+
+    assert result == calculator.avg([2, 5, 12, 98])
+
+
+def test_avg_5():
+    calculator = SimpleCalculator()
+
+    result = calculator.avg([2, 5, 12, 98], lt=5)
+
+    assert result == calculator.avg([5, 12, 98])
+
+
+def test_avg_6():
+    calculator = SimpleCalculator()
+
+    result = calculator.avg([])
+
+    assert result == 0
+
+
+def test_avg_7():
+    calculator = SimpleCalculator()
+
+    result = calculator.avg([12, 98], lt=15, ut=90)
+
+    assert result == 0
+
+
+def test_avg_8():
+    calculator = SimpleCalculator()
+
+    result = calculator.avg([], lt=15, ut=90)
+
+    assert result == 0
+
+
+def test_avg_9():
+    calculator = SimpleCalculator()
+
+    result = calculator.avg([-1, 0, 1], lt=0)
+
+    assert result == 0.5
+
+
+def test_avg_10():
+    calculator = SimpleCalculator()
+
+    result = calculator.avg([-1, 0, 1], ut=0)
+
+    assert result == -0.5
